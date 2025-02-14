@@ -1,0 +1,100 @@
+.case-study-card {
+  background: #f7f4ff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.case-study-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Category Badge */
+.case-study-category {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d6c9ff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #140152;
+}
+
+/* Image */
+.case-study-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Title */
+.case-study-title {
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  color: #140152;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.case-study-description {
+  background-color: transparent;
+  font-size: 14px;
+  color: #3d3d3d;
+  margin-bottom: 15px;
+}
+
+/* Stats */
+.case-study-stats {
+  background-color: transparent;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 2rem;
+  border-bottom: 1px solid #d9cbfa;
+  border-top: 1px solid #d9cbfa;
+}
+.case-study-stat {
+  background-color: transparent;
+  text-align: center;
+}
+
+.stat-value {
+  background-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #140152;
+}
+.stat-highlight {
+  border-left: 1px solid #d9cbfa;
+  border-right: 1px solid #d9cbfa;
+  padding: 0 1rem;
+}
+
+.stat-label {
+  background-color: transparent;
+  font-size: 1rem;
+  color: #3d3d3d;
+  text-align: center;
+}
+
+/* Read More Link */
+.case-study-link {
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #140152;
+  text-decoration: underline;
+}
+
+.case-study-link:hover {
+  text-decoration: underline;
+}

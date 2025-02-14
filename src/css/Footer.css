@@ -1,0 +1,120 @@
+.footer-container {
+  background: #fff;
+  padding: 58px 80px;
+  border-top: 1px solid #d6c9ff;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Branding Section */
+.footer-branding {
+  max-width: 400px;
+  text-align: left;
+}
+
+.footer-logo {
+  font-size: 36px;
+  font-weight: 700;
+  color: #07043c;
+}
+
+.footer-description {
+  font-size: 20px;
+  color: #80758b;
+  margin-bottom: 15px;
+}
+
+/* Social Icons */
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  font-size: 30px;
+  color: #140152;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #3d3d3d;
+}
+
+/* Links Section */
+.footer-links {
+  text-align: right;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #07043c;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list li {
+  margin: 10px 0;
+}
+
+.footer-list a {
+  text-decoration: none;
+  text-align: right;
+  font-size: 16px;
+  color: #80758b;
+  padding-right: 0;
+}
+
+.footer-list a:hover {
+  text-decoration: underline;
+}
+
+/* Divider Line */
+.footer-divider {
+  border-top: 1px dashed #d6c9ff;
+  margin: 20px auto;
+  width: 90%;
+}
+
+/* Copyright */
+.footer-copyright {
+  font-size: 16px;
+  color: #ada7b7;
+  text-align: start;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-branding {
+    text-align: center;
+  }
+
+  .footer-links {
+    text-align: center;
+  }
+  .footer-social{
+    justify-content: center;
+  }
+  .footer-copyright{
+    text-align: center;
+  }
+}

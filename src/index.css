@@ -1,0 +1,35 @@
+* {
+  font-family: Plus Jakarta Sans, sans-serif;
+  /* background-color: #ffffff; */
+  /* color: #060237; */
+}
+a {
+  text-decoration: none;
+  color: #060237;
+  text-align: left;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  padding: 8px 28px;
+  line-height: 1.5;
+  text-decoration: none;
+  font-weight: 700;
+}
+.CTA-Btn {
+  text-align: center;
+}
+@media (max-width: 769px) {
+  a {
+    padding: 0;
+  }
+  .dotted-lines {
+    display: none;
+  }
+  .CTA-Btn {
+    display: grid;
+    justify-content: center;
+    grid-gap: 16px;
+  }
+  .Curl-lines {
+    display: none;
+  }
+}
