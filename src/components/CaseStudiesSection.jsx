@@ -1,6 +1,7 @@
 import React from "react";
 import CaseStudyCard from "./CaseStudyCard";
 import "../css/CaseStudiesSection.css"; // Import section CSS
+import { NavLink } from "react-router-dom";
 
 // Import images
 import FashionImage from "../assets/Fashion study thumbnail.png";
@@ -51,9 +52,8 @@ const CaseStudiesSection = () => {
         ))}
       </div>
       <div className="pt-5">
-        <a
-          href="#"
-          rel="noopener noreferrer"
+        <NavLink
+          to={"/case-studies"}
           style={{
             display: "inline-block",
             borderRadius: "51px",
@@ -64,7 +64,7 @@ const CaseStudiesSection = () => {
           }}
         >
           View Case Studies
-        </a>
+        </NavLink>
       </div>
     </div>
   );

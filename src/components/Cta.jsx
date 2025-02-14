@@ -15,15 +15,16 @@ const Cta = () => {
         >
           Let’s Get Started{" "}
         </h2>
-        <div className="CTA-Btn" >
+        <div className="CTA-Btn">
           <a
+            target="_blank"
             style={{
               backgroundColor: "rgb(20, 1, 82)",
               borderRadius: " 51px",
-                          padding: "24px 30px",
+              padding: "24px 30px",
               marginRight: "20px",
             }}
-            href="#"
+            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
             rel="noopener noreferrer"
           >
             <span style={{ backgroundColor: "#140152", color: "#fff" }}>
@@ -46,12 +47,13 @@ const Cta = () => {
             </span>
           </a>
           <a
+            target="_blank"
             style={{
               borderRadius: " 51px",
               border: "1px solid rgb(20, 1, 82)",
               padding: "24px 40px",
             }}
-            href="#"
+            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
             rel="noopener noreferrer"
           >
             <span style={{ color: "rgb(20, 1, 82)" }}>Audit your Website</span>

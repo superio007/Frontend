@@ -1,4 +1,6 @@
+import { Nav } from "react-bootstrap";
 import { FiArrowUpRight } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,8 +9,19 @@ const Header = () => {
       style={{ padding: "24px 0", gap: "4rem" }}
     >
       {/* Logo */}
-      <h1 style={{ fontWeight: "700", textAlign: "left", margin: 0 ,color: "#140152"}}>boco</h1>
-
+      <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
+        <h1
+          style={{
+            textTransform:"lowercase",
+            fontWeight: "700",
+            textAlign: "left",
+            margin: 0,
+            color: "#140152",
+          }}
+        >
+          boco
+        </h1>
+      </NavLink>
       {/* Navigation */}
       <nav
         style={{
@@ -19,8 +32,8 @@ const Header = () => {
           gap: "2rem",
         }}
       >
-        <a
-          href="#"
+        <NavLink
+          to={"/boco-shopify-store-build"}
           style={{
             textDecoration: "none",
             color: "#140152",
@@ -28,9 +41,9 @@ const Header = () => {
           }}
         >
           Shopify Store Build
-        </a>
-        <a
-          href="#"
+        </NavLink>
+        <NavLink
+          to={"/custom-shopify-landing-page"}
           style={{
             textDecoration: "none",
             color: "#140152",
@@ -38,9 +51,9 @@ const Header = () => {
           }}
         >
           Landing Page Design
-        </a>
-        <a
-          href="#"
+        </NavLink>
+        <NavLink
+          to={"/case-studies"}
           style={{
             textDecoration: "none",
             color: "#140152",
@@ -48,9 +61,8 @@ const Header = () => {
           }}
         >
           Case Studies
-        </a>
+        </NavLink>
       </nav>
-
       {/* Call to Action Button */}
       <a
         href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
@@ -69,7 +81,12 @@ const Header = () => {
           gap: "10px",
         }}
       >
-    <span className="d-none d-md-block"style={{backgroundColor: "#140152",color: "#fff"}} >Talk to Us</span>
+        <span
+          className="d-none d-md-block"
+          style={{ backgroundColor: "#140152", color: "#fff" }}
+        >
+          Talk to Us
+        </span>
         <span
           style={{
             display: "flex",

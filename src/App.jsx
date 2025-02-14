@@ -1,30 +1,36 @@
-import Header from "./components/header"
-import HeroSection from "./components/HeroSection";
-import BrandSlider from "./components/BrandSlider";
-import ShopifyShowcase from "./components/ShopifyShowcase";
-import FeatureSection from "./components/FeatureSection";
-import CaseStudiesSection from "./components/CaseStudiesSection";
-import CTA from "./components/Cta";
-import Tagline from "./components/Tagline";
-import Footer from "./components/Footer";
-
+import HomePage from "./pages/HomePage";
+import NotFound from "./pages/notFound";
+import MainLayout from "./layouts/MainLayout";
+import CaseStudyPage from "./pages/CaseStudies";
+import ShopifyStorePage from "./pages/ShopifyStorePage";
+import LandingPageDesign from "./pages/LandingPageDesign";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 function App() {
 
-  return (
-    <>
-      <div className="container">
-        <Header />
-        <HeroSection />
-        <BrandSlider />
-        <ShopifyShowcase />
-        <FeatureSection />
-        <CaseStudiesSection />
-        <CTA />
-        <Tagline />
-        <Footer />
-        </div>
-    </>
-  );
+   const router = createBrowserRouter(
+     createRoutesFromElements(
+       <Route path="/" element={<MainLayout />}>
+         <Route path="/" element={<HomePage />} />
+         <Route path="*" element={<NotFound />} />
+         <Route
+           path="boco-shopify-store-build"
+           element={<ShopifyStorePage />}
+         />
+         <Route
+           path="custom-shopify-landing-page"
+           element={<LandingPageDesign />}
+         />
+         <Route path="case-studies" element={<CaseStudyPage />} />
+       </Route>
+     )
+   );
+
+   return <RouterProvider router={router} />;
 }
 
 export default App

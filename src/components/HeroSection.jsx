@@ -83,7 +83,10 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
-          <button
+          <a
+            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               border: "2px solid #140152",
               background: "transparent",
@@ -97,7 +100,7 @@ const HeroSection = () => {
             }}
           >
             Audit My Website
-          </button>
+          </a>
 
           <a
             href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import "../css/Footer.css"; // Import CSS for styling
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,14 +9,28 @@ const Footer = () => {
       <div className="footer-content">
         {/* Left Section - Branding & Social */}
         <div className="footer-branding">
-          <h2 className="footer-logo">boco</h2>
+          <h1 className="footer-logo">boco</h1>
           <p className="footer-description">
             We are driven by quality and we’re 0 bullshit. If you think the same
             way, we love a good chat.
           </p>
           <div className="footer-social">
-            <FaInstagram className="social-icon" />
-            <FaLinkedin className="social-icon" />
+            <a
+              href="https://www.instagram.com/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ paddingRight: "0", paddingLeft: "0" }}
+            >
+              <FaInstagram className="social-icon" />
+            </a>
+            <a
+              href="https://www.linkedin.com/feed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ paddingLeft: "0" }}
+            >
+              <FaLinkedin className="social-icon" />
+            </a>
           </div>
         </div>
 
@@ -24,13 +39,17 @@ const Footer = () => {
           <h3 className="footer-title">Products</h3>
           <ul className="footer-list">
             <li>
-              <a href="#">Shopify Store Build</a>
+              <NavLink to={"/boco-shopify-store-build"}>
+                Shopify Store Build
+              </NavLink>
             </li>
             <li>
-              <a href="#">Custom Landing Pages</a>
+              <NavLink to={"/custom-shopify-landing-page"}>
+                Custom Landing Pages
+              </NavLink>
             </li>
             <li>
-              <a href="#">Case Studies</a>
+              <NavLink to={"/case-studies"}>Case Studies</NavLink>
             </li>
           </ul>
         </div>
