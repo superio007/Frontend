@@ -1,4 +1,3 @@
-import { Nav } from "react-bootstrap";
 import { FiArrowUpRight } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
@@ -27,7 +26,7 @@ const Header = () => {
         style={{
           border: "1px solid #e3d9fb",
           borderRadius: "51px",
-          padding: "6px 20px",
+          padding: "16px 20px",
           display: "flex",
           gap: "2rem",
         }}
