@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-const Cta = () => {
+const Cta = ({ apiRes }) => {
   return (
     <>
       <div
@@ -13,7 +13,7 @@ const Cta = () => {
           className="text-center pb-5"
           style={{ fontSize: "48px", color: "#140152", fontWeight: "700" }}
         >
-          Let’s Get Started{" "}
+          {apiRes.title}
         </h2>
         <div className="CTA-Btn">
           <a
@@ -24,7 +24,7 @@ const Cta = () => {
               padding: "24px 30px",
               marginRight: "20px",
             }}
-            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
+            href={apiRes.bookCall}
             rel="noopener noreferrer"
           >
             <span style={{ backgroundColor: "#140152", color: "#fff" }}>
@@ -53,7 +53,7 @@ const Cta = () => {
               border: "1px solid rgb(20, 1, 82)",
               padding: "24px 40px",
             }}
-            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
+            href={apiRes.Audit}
             rel="noopener noreferrer"
           >
             <span style={{ color: "rgb(20, 1, 82)" }}>Audit your Website</span>

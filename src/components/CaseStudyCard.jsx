@@ -1,11 +1,15 @@
 import React from "react";
 import "../css/CaseStudyCard.css"; // Import CSS for styling
 
-const CaseStudyCard = ({ category, image, title, stats, link }) => {
+const CaseStudyCard = ({ category, image, title, stats, link, alt }) => {
   return (
     <div className="case-study-card">
       <div className="case-study-category">{category}</div>
-      <img src={image} alt={title} className="case-study-image" />
+      <img
+        src={`http://localhost:1337${image}`}
+        alt={alt}
+        className="case-study-image"
+      />
       <div className="case-study-content">
         <h3 className="case-study-title">{title}</h3>
         <div className="case-study-stats">
@@ -16,8 +20,8 @@ const CaseStudyCard = ({ category, image, title, stats, link }) => {
                 index === 1 ? "stat-highlight" : ""
               }`}
             >
-              <p className="stat-value m-0">{stat.value}</p>
-              <p className="stat-label m-0">{stat.label}</p>
+              <p className="stat-value m-0">{stat.title}</p>
+              <p className="stat-label m-0">{stat.description}</p>
             </div>
           ))}
         </div>

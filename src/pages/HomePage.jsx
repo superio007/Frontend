@@ -10,7 +10,7 @@ import axios from "axios";
 
 const fetchHomepageContent = async () => {
   const { data } = await axios.get(
-    "http://localhost:1337/api/homepage-content?populate[hero_sections][populate]=sideImage&populate[brands][populate]=brandslogos&populate[shopify_solutions][populate]=mockups&populate[customer_experience][populate]=*&populate[skills_cards][populate]=*&populate[case_study][populate]=*&populate[case_studies_cards][populate]=thumbnail&populate[brand_tag_line][populate]=*"
+    "http://localhost:1337/api/homepage-content?populate[hero_sections][populate]=sideImage&populate[brands][populate]=brandslogos&populate[shopify_solutions][populate]=mockups&populate[customer_experience][populate]=*&populate[skills_cards][populate]=*&populate[case_study][populate]=*&populate[case_studies_cards][populate]=thumbnail&populate[brand_tag_line][populate]=*&populate[cta][populate]=*"
   );
   return data;
 };
@@ -22,16 +22,22 @@ const HomePage = () => {
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
+  let apiResponse = data.data;
   return (
     <>
-          <HeroSection />
-          <BrandSlider />
-          <ShopifyShowcase />
-          <FeatureSection />
-          <CaseStudiesSection />
-          <CTA />
-          <Tagline />
+      <HeroSection apiRes={apiResponse.hero_sections} />
+      <BrandSlider apiRes={apiResponse.brands} />
+      <ShopifyShowcase apiRes={apiResponse.shopify_solutions} />
+      <FeatureSection
+        apiRes={apiResponse.customer_experience}
+        skillCard={apiResponse.skills_cards}
+      />
+      <CaseStudiesSection
+        apiRes={apiResponse.case_study}
+        caseCards={apiResponse.case_studies_cards}
+      />
+      <CTA apiRes={apiResponse.cta} />
+      <Tagline apiRes={apiResponse.brand_tag_line} />
     </>
   );
 };

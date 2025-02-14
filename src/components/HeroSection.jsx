@@ -1,6 +1,31 @@
 import { FiArrowUpRight } from "react-icons/fi";
 
-const HeroSection = () => {
+const HeroSection = ({ apiRes }) => {
+  let apires = apiRes;
+  let latestPost = apiRes.length - 1;
+  let hignlight = apiRes[latestPost].highlights;
+  let sideImageurl = apiRes[latestPost].sideImage.url;
+  let sideImagealt = apiRes[latestPost].sideImage.alternativeText;
+  function addBr(str, cut1, cut2) {
+    let words = str.split(" ");
+
+    if (words.length > cut1) {
+      words.splice(cut1, 0, "<br>");
+    }
+
+    if (words.length > cut2 + 1) {
+      // Adjusting for the shift caused by the first insertion
+      words.splice(cut2 + 1, 0, "<br>");
+    }
+
+    return words.join(" ");
+  }
+  let highlights = [];
+  hignlight.map((hignlight) =>
+    highlights.push({
+      title: hignlight.title,
+    })
+  );
   return (
     <section
       style={{
@@ -29,28 +54,23 @@ const HeroSection = () => {
             color: "#140152",
             marginBottom: "20px",
           }}
-        >
-          We build high-converting <br />
-          Shopify stores that drive Profit
-        </h1>
+          dangerouslySetInnerHTML={{
+            __html: addBr(apiRes[latestPost].title, 3, 7),
+          }}
+        />
         <p
           style={{
             fontSize: "clamp(16px, 2vw, 18px)",
             color: "#5A5A5A",
             marginBottom: "30px",
           }}
-        >
-          We're a leading Shopify & Shopify Plus agency who design and develop
-          strategic ecommerce websites
-        </p>
-
+          dangerouslySetInnerHTML={{
+            __html: addBr(apiRes[latestPost].description, 12),
+          }}
+        />
         {/* Bullet Points */}
         <ul style={{ listStyle: "none", padding: 0, marginBottom: "30px" }}>
-          {[
-            "Unmatched Speed & Stability",
-            "Build for Conversions",
-            "Reduced App Stack & Developer Dependencies",
-          ].map((text, index) => (
+          {highlights.map((text, index) => (
             <li
               key={index}
               style={{
@@ -75,7 +95,7 @@ const HeroSection = () => {
                   color: "#140152",
                 }}
               >
-                {text}
+                {text.title}
               </span>
             </li>
           ))}
@@ -148,8 +168,8 @@ const HeroSection = () => {
         }}
       >
         <img
-          src="src\assets\hero image.png"
-          alt="Shopify Store Preview"
+          src={`http://localhost:1337${sideImageurl}`}
+          alt={sideImagealt}
           style={{
             width: "100%",
             maxWidth: "500px",

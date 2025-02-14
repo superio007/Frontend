@@ -1,64 +1,54 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
 import "../css/FeatureSection.css"; // Import CSS for layout
-
-// Import images/icons
-import ConversionImage from "../assets/Conversion Rate Optimisation.png";
-import UiUxImage from "../assets/UI-UX.png";
-import WebDevImage from "../assets/Web.png";
 import curllines from "../assets/curllines.png";
 
-const features = [
-  {
-    image: ConversionImage,
-    title: "Conversion Rate Optimisation",
-    features: [
-      "Design Optimization",
-      "Speed Optimization",
-      "On Page SEO",
-      "Tech Maintenance & Support",
-    ],
-  },
-  {
-    image: UiUxImage,
-    title: "UI / UX Design",
-    features: [
-      "Landing Pages",
-      "Visual Identity (Web & Digital)",
-      "Icons & Illustrations",
-      "Assets & Components",
-    ],
-  },
-  {
-    image: WebDevImage,
-    title: "Web Development",
-    features: [
-      "Code & E-commerce Customization",
-      "Third Party & Custom Apps",
-      "Front End Development",
-      "Back end & CMS Setup",
-    ],
-  },
-];
+const FeatureSection = ({ apiRes, skillCard }) => {
+  let skillCards = skillCard;
+  function addBr(str, cut1, cut2) {
+    let words = str.split(" ");
 
-const FeatureSection = () => {
+    if (words.length > cut1) {
+      words.splice(cut1, 0, "<br>");
+    }
+
+    if (words.length > cut2 + 1) {
+      // Adjusting for the shift caused by the first insertion
+      words.splice(cut2 + 1, 0, "<br>");
+    }
+
+    return words.join(" ");
+  }
+  let skill = [];
+  skillCards.map((skillCard) => {
+    skill.push({
+      image: skillCard.thumbnail.url,
+      alt: skillCard.thumbnail.alternativeText,
+      title: skillCard.title,
+      features: skillCard.highlights,
+    });
+  });
+
   return (
     <div className="feature-section">
-      <h2 style={{ fontSize: "48px" }} className="feature-heading">
-        Enhance customer experience <br />
-        by focusing on the details that matters most
-      </h2>
-
+      <h2
+        style={{ fontSize: "48px" }}
+        className="feature-heading"
+        dangerouslySetInnerHTML={{
+          __html: addBr(apiRes.title, 3),
+        }}
+      />
       <div className="feature-grid">
         <span className="dotted-lines">
           <img src={curllines} alt="" />
         </span>
-        {features.map((feature, index) => (
+        {skill.map((feature, index) => (
           <FeatureCard
             key={index}
             image={feature.image}
             title={feature.title}
             features={feature.features}
+            alt={feature.alt}
           />
         ))}
       </div>

@@ -4,36 +4,36 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../css/ShopifyShowcase.css"; // Import the CSS file
-
-// Import icons
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const images = [
-  { src: "src/assets/mockup1.png", alt: "Shopify Design 1" },
-  { src: "src/assets/mockup2.png", alt: "Shopify Design 2" },
-  { src: "src/assets/mockup3.png", alt: "Shopify Design 3" },
-  { src: "src/assets/mockup4.png", alt: "Shopify Design 4" },
-  { src: "src/assets/mockup5.png", alt: "Shopify Design 5" },
-  { src: "src/assets/mockup6.png", alt: "Shopify Design 6" },
-  { src: "src/assets/mockup7.png", alt: "Shopify Design 7" },
-  { src: "src/assets/mockup8.png", alt: "Shopify Design 8" },
-];
+const ShopifyShowcase = ({ apiRes }) => {
+  let latestPost = apiRes.length - 1;
+  let mockups = apiRes[latestPost].mockups;
+  let mockupImages = [];
+  mockups.map((mockup) =>
+    mockupImages.push({
+      src: mockup.url,
+      alt: mockup.alternativeText,
+    })
+  );
+  function addBr(str) {
+    let words = str.split(" ");
 
-const ShopifyShowcase = () => {
+    if (words.length > 3) {
+      words.splice(4, 0, "</br>");
+    }
+
+    let newText = words.join(" ");
+    return newText;
+  }
   return (
     <div className="shopify-container">
       {/* Heading Section */}
-      <h2 className="shopify-heading">
-        <span>Stunningly Crafted Shopify Solutions</span>
-        <br />
-        <span>Driven by Insights</span>
-      </h2>
-      <p className="shopify-subheading">
-        As Shopify Partners and a leading eCommerce Web Design Agency, we
-        empower brands to thrive through strategic design and robust Shopify
-        development. We bring a fresh strategic approach to your brand, focusing
-        on delivering pixel-perfect websites, built for Conversions & Growth.
-      </p>
+      <h2
+        className="shopify-heading"
+        dangerouslySetInnerHTML={{ __html: addBr(apiRes[latestPost].title) }}
+      />
+      <p className="shopify-subheading">{apiRes[latestPost].description}</p>
 
       {/* Carousel Section */}
       <div className="shopify-slider-container">
@@ -56,9 +56,13 @@ const ShopifyShowcase = () => {
             1280: { slidesPerView: 6 }, // 6 slides on large screens
           }}
         >
-          {images.map((image, index) => (
+          {mockupImages.map((image, index) => (
             <SwiperSlide key={index} className="shopify-slide">
-              <img src={image.src} alt={image.alt} className="shopify-image" />
+              <img
+                src={`http://localhost:1337${image.src}`}
+                alt={image.alt}
+                className="shopify-image"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
