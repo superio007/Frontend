@@ -1,5 +1,6 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import "../css/header.css";
 
 const Header = () => {
   return (

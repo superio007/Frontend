@@ -2,7 +2,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 const HeroSection = ({ apiRes }) => {
   let apires = apiRes;
-  let latestPost = apiRes.length - 1;
+  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   let hignlight = apiRes[latestPost].highlights;
   let sideImageurl = apiRes[latestPost].sideImage.url;
   let sideImagealt = apiRes[latestPost].sideImage.alternativeText;

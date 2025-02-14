@@ -1,6 +1,7 @@
 import React from "react";
 const CaseStudyInfoPage = ({ apiRes }) => {
-  let latestPost = apiRes.length - 1;
+  const [loading, setLoading] = React.useState(true);
+  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   function addBr(str, cut1, cut2) {
     let words = str.split(" ");
 

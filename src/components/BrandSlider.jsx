@@ -6,7 +6,7 @@ const brands = [
 ];
 
 const BrandSlider = ({ apiRes }) => {
-  let latestPost = apiRes.length - 1;
+  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   let brandslogos = apiRes[latestPost].brandslogos;
   brandslogos.map((brand) =>
     brands.push({ src: brand.url, alt: brand.alternativeText })

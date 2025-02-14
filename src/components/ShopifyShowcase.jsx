@@ -7,7 +7,7 @@ import "../css/ShopifyShowcase.css"; // Import the CSS file
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const ShopifyShowcase = ({ apiRes }) => {
-  let latestPost = apiRes.length - 1;
+  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   let mockups = apiRes[latestPost].mockups;
   let mockupImages = [];
   mockups.map((mockup) =>
