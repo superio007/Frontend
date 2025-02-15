@@ -11,9 +11,6 @@ const WhyUsSection = ({ apiRes, cards }) => {
   }));
   return (
     <section className="why-us-section">
-      {/* <span className="Curl-lines2">
-        <img src={curllines} alt="" />
-      </span> */}
       <h3 className="why-us-title">{apiRes.subTitle}</h3>
       <h2 className="why-us-heading" style={{ color: "#060237" }}>
         {apiRes.title}

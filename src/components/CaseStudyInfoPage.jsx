@@ -17,7 +17,7 @@ const CaseStudyInfoPage = ({ apiRes }) => {
     return words.join(" ");
   }
   return (
-    <div className="flex flex-col items-center text-center py-16 px-4">
+    <div className="flex flex-col items-center text-center py-3 px-4">
       <h3
         style={{
           color: "#666287",
@@ -34,7 +34,7 @@ const CaseStudyInfoPage = ({ apiRes }) => {
           color: "#140152",
           fontSize: "48px",
           fontWeight: "700",
-          lineHeight: "80px",
+          // lineHeight: "80px",
         }}
         className=""
       >

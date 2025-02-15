@@ -6,8 +6,8 @@ const Cta = ({ apiRes }) => {
       <div
         style={{
           backgroundColor: "#f6f3ff",
-          padding: "85px 120px 70px",
         }}
+        className="CTA"
       >
         <h2
           className="text-center pb-5"

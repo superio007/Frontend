@@ -17,7 +17,19 @@ a {
 .CTA-Btn {
   text-align: center;
 }
+.case-studies-container {
+  padding: 50px 40px;
+}
+.CTA {
+  padding: 85px 120px 70px;
+}
 @media (max-width: 769px) {
+  .case-studies-container {
+    padding: 0;
+  }
+  .CTA {
+    padding: 85px 0;
+  }
   a {
     padding: 0;
   }

@@ -22,7 +22,7 @@ const CaseStudies = () => {
   let apiResponse = data.data;
   return (
     <>
-      <div style={{padding:"50px 40px"}}>
+      <div className="case-studies-container">
         <CaseStudyInfoPage apiRes={apiResponse.case_studies_page_infos} />
         <CseStudyContainer caseCards={apiResponse.case_studies_cards} />
         <Tagline apiRes={apiResponse.case_study_tag_line} />

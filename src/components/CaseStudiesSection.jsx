@@ -35,7 +35,7 @@ const CaseStudiesSection = ({ apiRes, caseCards }) => {
           <CaseStudyCard key={index} {...caseStudy} />
         ))}
       </div>
-      <div className="pt-5">
+      <div className="py-5">
         <NavLink
           to={"/case-studies"}
           style={{

@@ -73,9 +73,9 @@
     text-align: center;
   }
 
-  .feature-item {
+  /* .feature-item {
     justify-content: center;
-  }
+  } */
 
   .image-container {
     margin-top: 20px;
@@ -176,9 +176,19 @@
     flex-direction: column;
     align-items: center;
   }
+  .why-us-section{
+    padding: 60px 20px;
+  }
+
+  .why-us-cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
   .why-us-card {
     width: 100%;
     max-width: 400px;
   }
 }
+
