@@ -1,0 +1,184 @@
+.landing-section {
+  padding: 110px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .landing-section {
+    flex-direction: row;
+  }
+}
+
+.content-container {
+  width: 50%;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #140152;
+  line-height: 100%;
+}
+
+.subtext {
+  color: #060237;
+  font-size: 20px;
+  line-height: normal;
+  margin-top: 16px;
+}
+
+.features-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feature-icon {
+  width: 40px;
+}
+
+.feature-text {
+  color: #060237;
+  font-size: 24px;
+  margin-bottom: 0;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.side-image {
+  width: 100%;
+  max-width: 684px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .content-container,
+  .image-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .feature-item {
+    justify-content: center;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+}
+/* why us CSS */
+.why-us-section {
+  text-align: center;
+  padding: 40px 120px;
+  background-color: #fff;
+  position: relative;
+  z-index: 9999;
+}
+
+.why-us-title {
+  font-size: 1rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.why-us-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-top: 10px;
+}
+
+.highlight {
+  background-color: yellow;
+  padding: 0 4px;
+}
+
+.why-us-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 20px;
+  align-items: stretch;
+  background-image: url(/src/assets/curllines.png);
+  object-fit: fill;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.why-us-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+.why-us-card {
+  background: #f8f8ff;
+  padding: 70px 30px;
+  border-radius: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: self-start;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: start;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.card-title {
+  color: #140152;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.card-description {
+  color: #1401529e;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: normal;
+  margin-top: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .why-us-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .why-us-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
