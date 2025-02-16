@@ -16,6 +16,7 @@ const fetchHomepageContent = async () => {
   );
   return data;
 };
+
 const LandingPageDesign = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["homepage-content"],
@@ -24,23 +25,30 @@ const LandingPageDesign = () => {
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  let apiResponse = data.data;
-  // console.log(apiResponse);
+
+  const apiResponse = data?.data || {}; // Ensure apiResponse is not undefined
+
   return (
     <>
-      <LandingHeroSection apiRes={apiResponse.landing_page_hero_section} />
-      <LandingBrandslider apiRes={apiResponse.brands} />
-      <LandingpagEndtoEnd
-        apiRes={apiResponse.landing_page_end_to_end_section}
-      />
-      <LandShowcase apiRes={apiResponse.shopify_solutions} />
-      <WhyUsSection
-        apiRes={apiResponse.landing_page_why_us_section}
-        cards={apiResponse.landing_page_why_us_cards_sections}
-      />
-      <LandSliders apiRes={apiResponse.land_sliders} />
-      <LandFAQ apiRes={apiResponse.landing_page_faq_sections} />
-      <LandCTA apiRes={apiResponse.brand_tag_line} />
+      {apiResponse.landing_page_hero_section ? (
+        <>
+          <LandingHeroSection apiRes={apiResponse.landing_page_hero_section} />
+          <LandingBrandslider apiRes={apiResponse.brands || []} />
+          <LandingpagEndtoEnd
+            apiRes={apiResponse.landing_page_end_to_end_section || {}}
+          />
+          <LandShowcase apiRes={apiResponse.shopify_solutions || []} />
+          <WhyUsSection
+            apiRes={apiResponse.landing_page_why_us_section || {}}
+            cards={apiResponse.landing_page_why_us_cards_sections || []}
+          />
+          <LandSliders apiRes={apiResponse.land_sliders || []} />
+          <LandFAQ apiRes={apiResponse.landing_page_faq_sections || []} />
+          <LandCTA apiRes={apiResponse.brand_tag_line || {}} />
+        </>
+      ) : (
+        <p>No data available</p>
+      )}
     </>
   );
 };

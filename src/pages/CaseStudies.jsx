@@ -11,22 +11,31 @@ const fetchCaseStudiesPageContent = async () => {
   );
   return data;
 };
+
 const CaseStudies = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["homepage-content"],
+    queryKey: ["case-studies-content"], // Unique query key
     queryFn: fetchCaseStudiesPageContent,
   });
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  let apiResponse = data.data;
+
+  const apiResponse = data?.data || {}; // Ensure apiResponse is not undefined
+
   return (
     <>
-      <div className="case-studies-container">
-        <CaseStudyInfoPage apiRes={apiResponse.case_studies_page_infos} />
-        <CseStudyContainer caseCards={apiResponse.case_studies_cards} />
-        <Tagline apiRes={apiResponse.case_study_tag_line} />
-      </div>
+      {apiResponse.case_studies_page_infos ? (
+        <div className="case-studies-container">
+          <CaseStudyInfoPage
+            apiRes={apiResponse.case_studies_page_infos || {}}
+          />
+          <CseStudyContainer caseCards={apiResponse.case_studies_cards || []} />
+          <Tagline apiRes={apiResponse.case_study_tag_line || {}} />
+        </div>
+      ) : (
+        <p>No data available</p>
+      )}
     </>
   );
 };

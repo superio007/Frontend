@@ -14,6 +14,7 @@ const fetchHomepageContent = async () => {
   );
   return data;
 };
+
 const HomePage = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["homepage-content"],
@@ -22,22 +23,30 @@ const HomePage = () => {
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  let apiResponse = data.data;
+
+  const apiResponse = data?.data || {}; // Ensure data exists
+
   return (
     <>
-      <HeroSection apiRes={apiResponse.hero_sections} />
-      <BrandSlider apiRes={apiResponse.brands} />
-      <ShopifyShowcase apiRes={apiResponse.shopify_solutions} />
-      <FeatureSection
-        apiRes={apiResponse.customer_experience}
-        skillCard={apiResponse.skills_cards}
-      />
-      <CaseStudiesSection
-        apiRes={apiResponse.case_study}
-        caseCards={apiResponse.case_studies_cards}
-      />
-      <CTA apiRes={apiResponse.cta} />
-      <Tagline apiRes={apiResponse.brand_tag_line} />
+      {apiResponse.hero_sections ? (
+        <>
+          <HeroSection apiRes={apiResponse.hero_sections} />
+          <BrandSlider apiRes={apiResponse.brands || []} />
+          <ShopifyShowcase apiRes={apiResponse.shopify_solutions || []} />
+          <FeatureSection
+            apiRes={apiResponse.customer_experience || {}}
+            skillCard={apiResponse.skills_cards || []}
+          />
+          <CaseStudiesSection
+            apiRes={apiResponse.case_study || {}}
+            caseCards={apiResponse.case_studies_cards || []}
+          />
+          <CTA apiRes={apiResponse.cta || {}} />
+          <Tagline apiRes={apiResponse.brand_tag_line || {}} />
+        </>
+      ) : (
+        <p>No data available</p>
+      )}
     </>
   );
 };
