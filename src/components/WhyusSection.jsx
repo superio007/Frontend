@@ -16,7 +16,7 @@ const WhyUsSection = ({ apiRes, cards }) => {
         {apiRes.title}
       </h2>
       <div className="why-us-container">
-        <WhyUsCards features={whyCards} />
+        <WhyUsCards background={"#f8f8ff"} width={"50%"} features={whyCards} />
       </div>
     </section>
   );
