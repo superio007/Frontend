@@ -19,7 +19,7 @@ const ShopiFyMockup = ({ apiRes }) => {
 
   // Transform images properly
   const mockupImages = mockupImage.map((mockup) => ({
-    src: `http://localhost:1337${mockup.url}`, // Ensure correct URL format
+    src: `${mockup.url}`, // Ensure correct URL format
     alt: mockup.alternativeText || "Mockup Image",
   }));
 

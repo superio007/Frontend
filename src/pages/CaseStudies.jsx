@@ -7,7 +7,7 @@ import axios from "axios";
 
 const fetchCaseStudiesPageContent = async () => {
   const { data } = await axios.get(
-    "http://localhost:1337/api/case-studies-page?populate[case_studies_cards][populate]=thumbnail&populate[case_studies_page_infos][populate]=*&populate[case_study_tag_line][populate]=*"
+    "https://successful-bloom-8cd17fe201.strapiapp.com/api/case-studies-page?populate[case_studies_cards][populate]=thumbnail&populate[case_studies_page_infos][populate]=*&populate[case_study_tag_line][populate]=*"
   );
   return data;
 };

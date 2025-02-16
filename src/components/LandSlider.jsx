@@ -4,20 +4,20 @@ import "../css/BrandSlider.css"; // Import CSS
 const brands = [];
 
 const LandSliders = ({ apiRes }) => {
-    console.log(apiRes)
-    apiRes.map((brand) =>
-      brands.push({
-        src: brand.thumbnail.url,
-        alt: brand.thumbnail.alternativeText,
-        title: brand.title,
-      })
-    );
+  console.log(apiRes);
+  apiRes.map((brand) =>
+    brands.push({
+      src: brand.thumbnail.url,
+      alt: brand.thumbnail.alternativeText,
+      title: brand.title,
+    })
+  );
   return (
     <>
       <div
         className="brand-slider-container"
-              style={{
-            margin: "40px 0",
+        style={{
+          margin: "40px 0",
           borderBottom: "1px solid #e2d9ff",
           borderTop: "1px solid #e2d9ff",
         }}
@@ -26,13 +26,22 @@ const LandSliders = ({ apiRes }) => {
         <div className="brand-slider">
           <div className="slider-track">
             {[...brands, ...brands].map((brand, index) => (
-              <div className="slide" style={{gap: "20px"}} key={index}>
-                    <img
-                        style={{ width: "40px" }}
-                  src={`http://localhost:1337${brand.src}`}
+              <div className="slide" style={{ gap: "20px" }} key={index}>
+                <img
+                  style={{ width: "40px" }}
+                  src={`${brand.src}`}
                   alt={brand.alt}
                 />
-                <p style={{fontSize:"24px",fontWeight:"400px",color:"#140152"}} className="m-0 ">{brand.title}</p>
+                <p
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "400px",
+                    color: "#140152",
+                  }}
+                  className="m-0 "
+                >
+                  {brand.title}
+                </p>
               </div>
             ))}
           </div>

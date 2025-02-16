@@ -10,7 +10,7 @@ import ShopifyCTA from "../components/ShopifyCTA";
 
 const fetchHomepageContent = async () => {
   const { data } = await axios.get(
-    "http://localhost:1337/api/shopify-store-page?populate[landing_page_faq_sections][populate]=*&populate[shopify_cta][populate]=*&populate[shopify_audits][populate]=sideimage&populate[shopify_custamizations][populate]=sideimage&populate[shopify_hero_cards][populate]=thumbnail&populate[shopify_hero_sections][populate]=sideimage&populate[shopyfy_mockups][populate]=highlights"
+    "https://successful-bloom-8cd17fe201.strapiapp.com/api/shopify-store-page?populate[landing_page_faq_sections][populate]=*&populate[shopify_cta][populate]=*&populate[shopify_audits][populate]=sideimage&populate[shopify_custamizations][populate]=sideimage&populate[shopify_hero_cards][populate]=thumbnail&populate[shopify_hero_sections][populate]=sideimage&populate[shopyfy_mockups][populate]=highlights"
   );
   return data;
 };

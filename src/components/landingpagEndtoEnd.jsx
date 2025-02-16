@@ -11,7 +11,10 @@ const LandingPageSection = ({ apiRes }) => {
   }));
 
   return (
-    <section className="landing-section" style={{borderBottom: "1px solid #d6c9ff"}}>
+    <section
+      className="landing-section"
+      style={{ borderBottom: "1px solid #d6c9ff" }}
+    >
       {/* Left Content */}
       <div className="content-container">
         <h1 className="heading">{apiRes.title}</h1>
@@ -69,7 +72,7 @@ const LandingPageSection = ({ apiRes }) => {
       {/* Right Image */}
       <div className="image-container">
         <img
-          src={`http://localhost:1337${apiRes.sideimage.url}`}
+          src={`${apiRes.sideimage.url}`}
           alt={apiRes.sideimage.alternativeText}
           className="side-image"
         />

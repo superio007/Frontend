@@ -38,7 +38,7 @@ const ShopifyAudits = ({ apiRes }) => {
         }}
       >
         <img
-          src={`http://localhost:1337${sideImageurl}`}
+          src={`${sideImageurl}`}
           alt={sideImagealt}
           style={{
             width: "100%",

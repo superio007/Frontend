@@ -123,12 +123,12 @@ const ShopiFyHeroSection = ({ apiRes, cards }) => {
         {/* side image */}
         <div className="d-flex justify-content-center align-items-center">
           <img
-            src={`http://localhost:1337${apiRes[latestPost].sideimage.url}`}
+            src={`${apiRes[latestPost].sideimage.url}`}
             alt={apiRes[latestPost].sideimage.alternativeText}
             width={"100%"}
           />
         </div>
-        <div className="shopify-features" >
+        <div className="shopify-features">
           <WhyCards background={"#ffffff"} width={"80px"} features={features} />
         </div>
       </div>

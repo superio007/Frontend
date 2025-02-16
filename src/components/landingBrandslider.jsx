@@ -1,11 +1,11 @@
 import React from "react";
 import "../css/BrandSlider.css"; // Import CSS
 
-const brands = [
-];
+const brands = [];
 
 const landingBrandslider = ({ apiRes }) => {
-  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
+  let latestPost =
+    apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   let brandslogos = apiRes[latestPost].brandslogos;
   brandslogos.map((brand) =>
     brands.push({ src: brand.url, alt: brand.alternativeText })
@@ -20,7 +20,7 @@ const landingBrandslider = ({ apiRes }) => {
         <div className="slider-track">
           {[...brands, ...brands].map((brand, index) => (
             <div className="slide" key={index}>
-              <img src={`http://localhost:1337${brand.src}`} alt={brand.alt} />
+              <img src={`${brand.src}`} alt={brand.alt} />
             </div>
           ))}
         </div>

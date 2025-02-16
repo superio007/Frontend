@@ -107,7 +107,7 @@ const LandingHeroSection = ({ apiRes }) => {
         {/* side image */}
         <div className="d-flex justify-content-center align-items-center">
           <img
-            src={`http://localhost:1337${apiRes.sideimage.url}`}
+            src={`${apiRes.sideimage.url}`}
             alt={apiRes.sideimage.alternativeText}
             width={"100%"}
           />

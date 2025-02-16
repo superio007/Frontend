@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const HeroSection = ({ apiRes }) => {
   let apires = apiRes;
-  let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
+  let latestPost =
+    apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
   let hignlight = apiRes[latestPost].highlights;
   let sideImageurl = apiRes[latestPost].sideImage.url;
   let sideImagealt = apiRes[latestPost].sideImage.alternativeText;
@@ -167,7 +168,7 @@ const HeroSection = ({ apiRes }) => {
         }}
       >
         <img
-          src={`http://localhost:1337${sideImageurl}`}
+          src={`${sideImageurl}`}
           alt={sideImagealt}
           style={{
             width: "100%",

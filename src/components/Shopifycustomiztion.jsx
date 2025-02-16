@@ -36,7 +36,7 @@ const Shopifycustomiztion = ({ apiRes }) => {
         }}
       >
         <img
-          src={`http://localhost:1337${sideImageurl}`}
+          src={`${sideImageurl}`}
           alt={sideImagealt}
           style={{
             width: "100%",
@@ -48,8 +48,8 @@ const Shopifycustomiztion = ({ apiRes }) => {
       </div>
 
       {/* Right Section (Image) */}
-          <div
-              className="pt-md-0 pt-3"
+      <div
+        className="pt-md-0 pt-3"
         style={{
           flex: "1",
           minWidth: "300px",

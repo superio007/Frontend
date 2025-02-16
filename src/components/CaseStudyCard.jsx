@@ -5,11 +5,7 @@ const CaseStudyCard = ({ category, image, title, stats, link, alt }) => {
   return (
     <div className="case-study-card">
       <div className="case-study-category">{category}</div>
-      <img
-        src={`http://localhost:1337${image}`}
-        alt={alt}
-        className="case-study-image"
-      />
+      <img src={`${image}`} alt={alt} className="case-study-image" />
       <div className="case-study-content">
         <h3 className="case-study-title">{title}</h3>
         <div className="case-study-stats">

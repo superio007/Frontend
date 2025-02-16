@@ -7,7 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const postContactForm = async (formattedData) => {
   const { data } = await axios.post(
-    "http://localhost:1337/api/contact-from-entries",
+    "https://successful-bloom-8cd17fe201.strapiapp.com/api/contact-from-entries",
     formattedData, // Sending formattedData in the request body
     {
       headers: {

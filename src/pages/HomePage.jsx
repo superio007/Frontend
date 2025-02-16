@@ -10,7 +10,7 @@ import axios from "axios";
 
 const fetchHomepageContent = async () => {
   const { data } = await axios.get(
-    "http://localhost:1337/api/homepage-content?populate[hero_sections][populate]=sideImage&populate[brands][populate]=brandslogos&populate[shopify_solutions][populate]=mockups&populate[customer_experience][populate]=*&populate[skills_cards][populate]=*&populate[case_study][populate]=*&populate[case_studies_cards][populate]=thumbnail&populate[brand_tag_line][populate]=*&populate[cta][populate]=*"
+    "https://successful-bloom-8cd17fe201.strapiapp.com/api/homepage-content?populate[hero_sections][populate]=sideImage&populate[brands][populate]=brandslogos&populate[shopify_solutions][populate]=mockups&populate[customer_experience][populate]=*&populate[skills_cards][populate]=*&populate[case_study][populate]=*&populate[case_studies_cards][populate]=thumbnail&populate[brand_tag_line][populate]=*&populate[cta][populate]=*"
   );
   return data;
 };
@@ -25,7 +25,7 @@ const HomePage = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const apiResponse = data?.data || {}; // Ensure data exists
-
+  console.log(apiResponse);
   return (
     <>
       {apiResponse.hero_sections ? (

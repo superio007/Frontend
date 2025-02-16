@@ -12,7 +12,7 @@ import axios from "axios";
 
 const fetchHomepageContent = async () => {
   const { data } = await axios.get(
-    "http://localhost:1337/api/landing-page?populate[landing_page_hero_section][populate]=sideimage&populate[brands][populate]=brandslogos&populate[landing_page_end_to_end_section][populate]=sideimage&populate[landing_page_why_us_section][populate]=*&populate[landing_page_why_us_cards_sections][populate]=thumbnail&populate[shopify_solutions][populate]=mockups&populate[landing_page_faq_sections][populate]=*&populate[brand_tag_line][populate]=*&populate[land_sliders][populate]=thumbnail"
+    "https://successful-bloom-8cd17fe201.strapiapp.com/api/landing-page?populate[landing_page_hero_section][populate]=sideimage&populate[brands][populate]=brandslogos&populate[landing_page_end_to_end_section][populate]=sideimage&populate[landing_page_why_us_section][populate]=*&populate[landing_page_why_us_cards_sections][populate]=thumbnail&populate[shopify_solutions][populate]=mockups&populate[landing_page_faq_sections][populate]=*&populate[brand_tag_line][populate]=*&populate[land_sliders][populate]=thumbnail"
   );
   return data;
 };
