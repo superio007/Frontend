@@ -1,4 +1,5 @@
 import { FiArrowUpRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const HeroSection = ({ apiRes }) => {
   let apires = apiRes;
@@ -122,10 +123,8 @@ const HeroSection = ({ apiRes }) => {
             Audit My Website
           </a>
 
-          <a
-            href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={"/talk-to-us"}
             style={{
               backgroundColor: "#140152",
               color: "#fff",
@@ -154,7 +153,7 @@ const HeroSection = ({ apiRes }) => {
             >
               <FiArrowUpRight style={{ color: "#140152", fontSize: "18px" }} />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
 

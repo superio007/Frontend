@@ -1,6 +1,7 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import "../css/ShopifyCTA.css";
+import { Link } from "react-router-dom";
 
 const ShopifyCTA = ({ apiRes }) => {
   return (
@@ -14,12 +15,12 @@ const ShopifyCTA = ({ apiRes }) => {
           </div>
         ))}
       </div>
-      <a href={apiRes.TalktoUs} className="talk-button">
+      <Link to={"/talk-to-us"} className="talk-button">
         Talk to Us
         <span className="arrow-circle">
           <FiArrowUpRight style={{ color: "#140152", fontSize: "18px" }} />
         </span>
-      </a>
+      </Link>
     </section>
   );
 };

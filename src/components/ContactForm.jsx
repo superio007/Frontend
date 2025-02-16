@@ -2,9 +2,58 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../css/ContactForm.css";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import Swal from "sweetalert2";
+const postContactForm = async (formattedData) => {
+  const { data } = await axios.post(
+    "http://localhost:1337/api/contact-from-entries",
+    formattedData, // Sending formattedData in the request body
+    {
+      headers: {
+        "Content-Type": "application/json", // Ensure JSON content type
+      },
+    }
+  );
+  return data;
+};
+
+const usePostContactForm = () => {
+  return useMutation({
+    mutationFn: postContactForm, // ✅ Correct way to use mutation function
+    onSuccess: () => {
+      Swal.fire({
+        icon: "success",
+        title: "Form Submitted Successfully!",
+        text: "Your contact form has been sent.",
+        confirmButtonText: "OK",
+      });
+    },
+    onError: (error) => {
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text:
+          error.response?.data?.message ||
+          "Something went wrong. Please try again.",
+        confirmButtonText: "OK",
+      });
+    },
+  });
+};
 
 const ContactForm = () => {
+  // Using react-query mutation hook
+  const { mutate } = usePostContactForm();
   const [selectedIssues, setSelectedIssues] = useState([]);
+  const {
+    register,
+    handleSubmit,
+    isSubmitting,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const handleCheckboxClick = (value) => {
     setSelectedIssues(
@@ -13,6 +62,34 @@ const ContactForm = () => {
           ? prevSelectedIssues.filter((issue) => issue !== value) // Remove if already selected
           : [...prevSelectedIssues, value] // Add if not selected
     );
+  };
+  // onSubmit function to format and send data
+  const onSubmit = (data) => {
+    data.selectedIssues = selectedIssues;
+
+    const formattedData = {
+      data: {
+        BrandName: data.BrandName,
+        YourName: data.YourName,
+        WebsiteURL: data.WebsiteURL,
+        EmailAddress: data.EmailAddress,
+        PhoneType: data.PhoneType,
+        PhoneNumber: data.PhoneNumber,
+        MonthlyStoreSessions: data.MonthlyStoreSessions,
+        ConversionRate: data.ConversionRate,
+        Overview: data.Overview,
+        FindUs: data.FindUs,
+        Issues: data.selectedIssues,
+      },
+    };
+
+    console.log("Formatted Data:", formattedData);
+
+    // Call the mutation to send data
+    mutate(formattedData);
+
+    // Reset form after submission
+    reset();
   };
   return (
     <>
@@ -25,7 +102,7 @@ const ContactForm = () => {
           </p>
         </div>
         <div className="contact-form">
-          <form action="" method="post">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-group">
               <label htmlFor="BrandName" className="contact-label">
                 1 . Brand Name <span className="text-danger">*</span>
@@ -35,6 +112,9 @@ const ContactForm = () => {
                 type="text"
                 name=""
                 id="BrandName"
+                {...register("BrandName", {
+                  required: "This field is required",
+                })}
               />
             </div>
             <div className="contact-group">
@@ -46,6 +126,9 @@ const ContactForm = () => {
                 type="text"
                 name=""
                 id="YourName"
+                {...register("YourName", {
+                  required: "This field is required",
+                })}
               />
             </div>
             <div className="contact-group">
@@ -57,6 +140,9 @@ const ContactForm = () => {
                 type="text"
                 name=""
                 id="BrandUrl"
+                {...register("WebsiteURL", {
+                  required: "This field is required",
+                })}
               />
             </div>
             <div className="contact-group">
@@ -68,6 +154,9 @@ const ContactForm = () => {
                 type="email"
                 name=""
                 id="BrandEmail"
+                {...register("EmailAddress", {
+                  required: "This field is required",
+                })}
               />
             </div>
             <div className="contact-group">
@@ -81,12 +170,18 @@ const ContactForm = () => {
                   className="contact-input"
                   id="PhoneType"
                   value={"91"}
+                  {...register("PhoneType", {
+                    required: "This field is required",
+                  })}
                 />
                 <input
                   className="contact-input"
                   type="text"
                   name=""
                   id="BrandPhone"
+                  {...register("PhoneNumber", {
+                    required: "This field is required",
+                  })}
                 />
               </div>
             </div>
@@ -100,17 +195,21 @@ const ContactForm = () => {
                   <span className="d-flex">
                     <input
                       type="radio"
-                      name="BrandSessions"
                       id="lessThan10k"
                       value="Less than 10k"
+                      {...register("MonthlyStoreSessions", {
+                        required: true,
+                      })}
                     />
                     <label htmlFor="lessThan10k">Less than 10k</label>
                   </span>
                   <span className="d-flex">
                     <input
                       type="radio"
-                      name="BrandSessions"
                       id="50kTo100k"
+                      {...register("MonthlyStoreSessions", {
+                        required: true,
+                      })}
                       value="50k to 100k"
                     />
                     <label htmlFor="50kTo100k">50k to 100k</label>
@@ -120,7 +219,9 @@ const ContactForm = () => {
                   <span className="d-flex">
                     <input
                       type="radio"
-                      name="BrandSessions"
+                      {...register("MonthlyStoreSessions", {
+                        required: true,
+                      })}
                       id="10kTo50k"
                       value="10k to 50k"
                     />
@@ -129,7 +230,9 @@ const ContactForm = () => {
                   <span className="d-flex">
                     <input
                       type="radio"
-                      name="BrandSessions"
+                      {...register("MonthlyStoreSessions", {
+                        required: true,
+                      })}
                       id="100kPlus"
                       value="100k+"
                     />
@@ -148,6 +251,9 @@ const ContactForm = () => {
                 type="text"
                 name=""
                 id="BrandConversionRate"
+                {...register("ConversionRate", {
+                  required: "This field is required",
+                })}
               />
             </div>
             <div className="contact-group">
@@ -164,6 +270,9 @@ const ContactForm = () => {
                       value="Website Design & Development"
                       className="custom-checkbox"
                       name="shopifyIssue"
+                      {...register("Issues", {
+                        required: "true",
+                      })}
                       checked={selectedIssues.includes(
                         "Website Design & Development"
                       )}
@@ -182,6 +291,9 @@ const ContactForm = () => {
                       value="High Converting Landing Pages"
                       className="custom-checkbox"
                       name="shopifyIssue"
+                      {...register("Issues", {
+                        required: "true",
+                      })}
                       checked={selectedIssues.includes(
                         "High Converting Landing Pages"
                       )}
@@ -202,6 +314,9 @@ const ContactForm = () => {
                       value="Technical Maintenance & Support"
                       className="custom-checkbox"
                       name="shopifyIssue"
+                      {...register("Issues", {
+                        required: "true",
+                      })}
                       checked={selectedIssues.includes(
                         "Technical Maintenance & Support"
                       )}
@@ -218,6 +333,9 @@ const ContactForm = () => {
                       type="checkbox"
                       id="ConversionRate"
                       value="Conversion Rate Optimization"
+                      {...register("Issues", {
+                        required: "true",
+                      })}
                       className="custom-checkbox"
                       name="shopifyIssue"
                       checked={selectedIssues.includes(
@@ -235,7 +353,7 @@ const ContactForm = () => {
               </div>
             </div>
             <div className="contact-group">
-              <label htmlFor="BrandFind" className="contact-label">
+              <label htmlFor="BrandOverview" className="contact-label">
                 9 . Overview <span className="text-danger">*</span>
               </label>
               <span
@@ -251,7 +369,10 @@ const ContactForm = () => {
                 className="contact-textarea"
                 type="text"
                 name=""
-                id="BrandFind"
+                {...register("Overview", {
+                  required: "This field is required",
+                })}
+                id="BrandOverview"
               />
             </div>
             <div className="contact-group">
@@ -260,15 +381,20 @@ const ContactForm = () => {
                 <span className="text-danger">*</span>
               </label>
               <input
+                {...register("FindUs", {
+                  required: "This field is required", // ✅ Ensure required validation message
+                })}
                 className="contact-input"
                 type="text"
-                name=""
                 id="BrandFind"
               />
+              {errors.BrandFind && (
+                <p className="error-message">{errors.BrandFind.message}</p>
+              )}
             </div>
+
             <div className="d-flex justify-content-center">
               <button
-                type="submit"
                 style={{
                   backgroundColor: "#140152",
                   color: "#fff",
@@ -282,8 +408,11 @@ const ContactForm = () => {
                   gap: "10px",
                   minWidth: "180px",
                 }}
+                type="submit"
+                disabled={isSubmitting}
+                className="contact-submit-btn"
               >
-                Talk to Us
+                {isSubmitting ? "Submitting..." : "Talk to Us"}
                 <span
                   style={{
                     display: "flex",
@@ -294,8 +423,10 @@ const ContactForm = () => {
                     width: "30px",
                     height: "30px",
                   }}
+                  className="icon-container"
                 >
                   <FiArrowUpRight
+                    className="icon"
                     style={{ color: "#140152", fontSize: "18px" }}
                   />
                 </span>

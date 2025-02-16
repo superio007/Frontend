@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const LandingHeroSection = ({ apiRes }) => {
   function addBr(str, cut1, cut2) {
     let words = str.split(" ");
@@ -84,10 +85,8 @@ const LandingHeroSection = ({ apiRes }) => {
               <FiArrowUpRight style={{ color: "#140152", fontSize: "18px" }} />
             </span>
           </a>
-          <a
-            href={apiRes.TalktoUs}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={"/talk-to-us"}
             style={{
               border: "2px solid #140152",
               background: "transparent",
@@ -103,7 +102,7 @@ const LandingHeroSection = ({ apiRes }) => {
             }}
           >
             Talk to Us
-          </a>
+          </Link>
         </div>
         {/* side image */}
         <div className="d-flex justify-content-center align-items-center">

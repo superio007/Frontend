@@ -2,6 +2,7 @@ import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import WhyCards from "./WhyCards";
 import "../css/shopifyPage.css";
+import { Link } from "react-router-dom";
 const ShopiFyHeroSection = ({ apiRes, cards }) => {
   // console.log(cards);
   const features = [];
@@ -87,10 +88,8 @@ const ShopiFyHeroSection = ({ apiRes, cards }) => {
           >
             Audit My Website
           </a>
-          <a
-            href={apiRes[latestPost].TalktoUs}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={"/talk-to-us"}
             style={{
               backgroundColor: "#140152",
               color: "#fff",
@@ -119,7 +118,7 @@ const ShopiFyHeroSection = ({ apiRes, cards }) => {
             >
               <FiArrowUpRight style={{ color: "#140152", fontSize: "18px" }} />
             </span>
-          </a>
+          </Link>
         </div>
         {/* side image */}
         <div className="d-flex justify-content-center align-items-center">

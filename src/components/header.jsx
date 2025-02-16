@@ -1,5 +1,5 @@
 import { FiArrowUpRight } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../css/header.css";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
       <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
         <h1
           style={{
-            textTransform:"lowercase",
+            textTransform: "lowercase",
             fontWeight: "700",
             textAlign: "left",
             margin: 0,
@@ -64,10 +64,8 @@ const Header = () => {
         </NavLink>
       </nav>
       {/* Call to Action Button */}
-      <a
-        href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to={"/talk-to-us"}
         style={{
           backgroundColor: "#140152",
           color: "#fff",
@@ -100,7 +98,7 @@ const Header = () => {
         >
           <FiArrowUpRight style={{ color: "#140152", fontSize: "18px" }} />
         </span>
-      </a>
+      </Link>
     </div>
   );
 };

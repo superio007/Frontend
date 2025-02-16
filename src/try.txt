@@ -1,0 +1,18 @@
+{
+  "data": {
+    "BrandName": "Digital Dhukan",
+    "YourName": "Kiran Pramod dhoke",
+    "WebsiteURL": "https://www.youtube.com/watch?v=qyzznUNe1ho",
+    "EmailAddress": "dhokekiran88@gmail.com",
+    "PhoneType": "91",
+    "PhoneNumber": "08097972852",
+    "MonthlyStoreSessions": "Less than 10k",
+    "ConversionRate": "100",
+    "Overview": "help",
+    "FindUs": "indeed",
+    "Issues": [
+      "Website Design & Development",
+      "Conversion Rate Optimization"
+    ]
+  }
+}
