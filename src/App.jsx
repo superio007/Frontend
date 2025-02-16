@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import CaseStudyPage from "./pages/CaseStudies";
 import ShopifyStorePage from "./pages/ShopifyStorePage";
 import LandingPageDesign from "./pages/LandingPageDesign";
+import TalktoUs from "./pages/TalkToUs";
 import {
   Route,
   createBrowserRouter,
@@ -25,6 +26,7 @@ function App() {
            path="custom-shopify-landing-page"
            element={<LandingPageDesign />}
          />
+         <Route path="talk-to-us" element={<TalktoUs />} />
          <Route path="case-studies" element={<CaseStudyPage />} />
        </Route>
      )

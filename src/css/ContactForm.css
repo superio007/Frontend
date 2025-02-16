@@ -1,0 +1,173 @@
+.contact-container {
+  grid-column-gap: 80px;
+  grid-row-gap: 80px;
+  border-radius: 48px;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 120px 200px;
+  display: flex;
+}
+.contact-form form {
+  grid-column-gap: 48px;
+  grid-row-gap: 48px;
+  text-align: left;
+  flex-flow: column;
+  display: flex;
+}
+.contact-heading-container h2 {
+  color: #060237;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: -0.96px;
+  font-weight: 700;
+  line-height: 120%;
+}
+.contact-heading-container p {
+  color: #060237;
+  font-size: 1.5rem;
+  text-align: center;
+  flex: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  line-height: 30px;
+  display: flex;
+}
+.contact-group {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  flex-flow: column;
+  display: flex;
+}
+.contact-input {
+  border: 1px solid #9f9db4;
+  border-radius: 32px;
+  min-height: 48px;
+  max-height: 48px;
+  margin-bottom: 0;
+  padding: 8px;
+}
+.contact-textarea {
+  border: 1px solid #9f9db4;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1040px;
+  height: 100%;
+  max-height: 200px;
+  margin-bottom: 0;
+  padding: 40px;
+  overflow: hidden;
+}
+.contact-label {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 30px;
+  color: #060237;
+  margin-bottom: 0;
+}
+.Phone-input {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  display: flex;
+}
+.Phone-input #PhoneType {
+  border: 1px solid #9f9db4;
+  text-align: center;
+  border-radius: 32px;
+  justify-content: center;
+  align-items: center;
+  max-width: 111px;
+  min-height: 48px;
+  max-height: 48px;
+  margin-bottom: 0;
+  margin-right: 0;
+  padding: 8px;
+  display: block;
+}
+.Phone-input #BrandPhone {
+  border: 1px solid #9f9db4;
+  border-radius: 32px;
+  flex: 0 auto;
+  width: 100%;
+  max-width: 1040px;
+  min-height: 48px;
+  max-height: 48px;
+  margin-bottom: 0;
+}
+.Sessions-input {
+  flex-flow: row;
+  display: flex;
+}
+.radio-btn {
+  flex-flow: column;
+}
+.radio-btn label {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 0;
+  font-weight: 400;
+  display: inline-block;
+}
+.radio-btn input {
+  width: 2rem;
+  color: #060237;
+}
+
+.Issue-input {
+  flex-flow: row;
+  display: flex;
+}
+
+.Issue-radio-btn {
+  flex-flow: column;
+}
+
+.Issue-radio-btn label {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 0;
+  font-weight: 400;
+  display: inline-block;
+}
+
+/* Custom Square Checkboxes */
+.custom-checkbox {
+  appearance: none; /* Hide default checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #060237; /* Border color */
+  background-color: white;
+  border-radius: 4px; /* Slightly rounded corners */
+  cursor: pointer;
+  position: relative;
+  margin-right: 8px;
+}
+
+.custom-checkbox:checked {
+  background-color: #060237;
+}
+
+.custom-checkbox:checked::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
