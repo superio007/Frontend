@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX, FiArrowUpRight } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../css/header.css";
 
 const MobileHeader = () => {
