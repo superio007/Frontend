@@ -36,14 +36,12 @@ const MobileHeader = () => {
       </NavLink>
 
       {/* Right: Call-to-Action Button */}
-      <a
-        href="https://qui8d48qnm9.typeform.com/to/CirpyVmQ?typeform-source=www.boco.agency"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to={"/talk-to-us"}
         className="cta-btn"
       >
         <FiArrowUpRight size={18} />
-      </a>
+      </Link>
 
       {/* Navigation Menu (Dropdown) */}
       <nav
