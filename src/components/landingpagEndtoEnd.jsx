@@ -1,6 +1,5 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-import sideimage from "../assets/landing page side image2.png";
 import "../css/LandingPageSection.css";
 
 const LandingPageSection = ({ apiRes }) => {
