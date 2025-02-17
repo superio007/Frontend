@@ -1,0 +1,11 @@
+.case-study-heading{
+    color: #140152;
+    font-size: 3rem;
+    font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+    .case-study-heading{
+        font-size: 2rem;
+        line-height: 2.25rem;
+    }
+}

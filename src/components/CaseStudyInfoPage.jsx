@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/CaseStudyInfoPage.css";
 const CaseStudyInfoPage = ({ apiRes }) => {
   const [loading, setLoading] = React.useState(true);
   let latestPost = apiRes && Array.isArray(apiRes) && apiRes.length ? apiRes.length - 1 : 1;
@@ -30,13 +31,8 @@ const CaseStudyInfoPage = ({ apiRes }) => {
         {apiRes[latestPost].subTitle}
       </h3>
       <h1
-        style={{
-          color: "#140152",
-          fontSize: "48px",
-          fontWeight: "700",
-          // lineHeight: "80px",
-        }}
-        className=""
+        
+        className="case-study-heading"
       >
         {apiRes[latestPost].title}
       </h1>

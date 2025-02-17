@@ -32,7 +32,7 @@ const FeatureSection = ({ apiRes, skillCard }) => {
   return (
     <div className="feature-section">
       <h2
-        style={{ fontSize: "48px" }}
+        // style={{ fontSize: "48px" }}
         className="feature-heading"
         dangerouslySetInnerHTML={{
           __html: addBr(apiRes.title, 3),

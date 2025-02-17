@@ -1,0 +1,11 @@
+.tagline{
+    color: #140152;
+    font-size: 3rem;
+    font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+    .tagline{
+        font-size: 2rem;
+        line-height: 2.25rem;
+    }
+}
